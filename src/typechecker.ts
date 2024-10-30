@@ -500,7 +500,7 @@ function typecheckExpression(
         throw new Error(Errors.UNEXPECTED_LIST);
       }
       const {exprs} = expr;
-      let elementExpectedType: Type | null = expectedType;
+      let elementExpectedType: Type | null = expectedType?.elementType ?? null;
       console.log('List, expect', expectedType);
       
       for (const it of exprs) {
