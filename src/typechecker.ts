@@ -169,7 +169,9 @@ export function typecheckProgram(ast: Program) {
 
       case 'DeclExceptionType': {
         contx.exceptionType = decl.exceptionType;
+        break;
       }
+      
       default:
         throw new Error('Unknown declaration type');
     }
@@ -678,6 +680,7 @@ function typecheckExpression(
     }
     case 'Panic': {
       console.log('Panic');
+      console.log('Panic', expectedType);
       if (!expectedType)
         return TYPE_BOT;
       
