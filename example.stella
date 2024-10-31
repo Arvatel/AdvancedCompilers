@@ -1,10 +1,13 @@
 language core;
 
-extend with #exceptions, #exception-type-declaration;
+extend with
+ #natural-literals,
+  #let-bindings,
+  #panic;
 
-exception type = Nat
-
-fn main(n : Nat) -> Bool {
-  return throw(succ(0))
+fn main(n : Nat) -> Nat {
+  return
+    let n = (succ (2)) in
+    let m = (succ (3)) in
+    if Nat::iszero(m) then (succ (0)) else panic!
 }
-

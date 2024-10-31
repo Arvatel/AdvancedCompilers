@@ -246,7 +246,12 @@ function typecheckExpression(
 
       const thenType = typecheckExpression(thenExpr, expectedType, context);
       const elseType = typecheckExpression(elseExpr, expectedType, context);
-      isTypesMatch(thenType, elseType);
+      try{
+        isTypesMatch(elseType, thenType);
+      }
+      catch(error){
+        isTypesMatch(thenType, elseType);
+      }
 
       // console.log('end if');
       return thenType;
